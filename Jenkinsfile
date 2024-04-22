@@ -1,11 +1,21 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('error') {
       steps {
-        sh 'go test ./...'
+        sh '''pipeline {
+  agent any
+  stages {
+    stage(\'\') {
+      steps {
+        sh \'go test ./...\'
       }
     }
 
   }
-}
+}'''
+        }
+      }
+
+    }
+  }
